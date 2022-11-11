@@ -576,12 +576,6 @@ Reference: (some may be depricated in the new version of RxJS)
   * [timestamp](https://rxjs.dev/api/operators/timestamp)
   * [timeout](https://rxjs.dev/api/operators/timeout)
   * [timeoutWith](https://rxjs.dev/api/operators/timeoutWith)
-  * [toArray](https://rxjs.dev/api/operators/toArray)
-  * [defaultIfEmpty](https://rxjs.dev/api/operators/defaultIfEmpty)
-  * [every](https://rxjs.dev/api/operators/every)
-  * [find](https://rxjs.dev/api/operators/find)
-  * [findIndex](https://rxjs.dev/api/operators/findIndex)
-  * [isEmpty](https://rxjs.dev/api/operators/isEmpty)
   
 ### Error Handling Operators
 
@@ -602,15 +596,15 @@ Reference: (some may be depricated in the new version of RxJS)
   * [timestamp](https://rxjs.dev/api/operators/timestamp)
   * [timeout](https://rxjs.dev/api/operators/timeout)
   * [timeoutWith](https://rxjs.dev/api/operators/timeoutWith)
-  * [toArray](https://rxjs.dev/api/operators/toArray
+  * [toArray](https://rxjs.dev/api/operators/toArray)
 
 ### Conditional and Boolean Operators
 
-  *[defaultIfEmpty](https://rxjs.dev/api/operators/defaultIfEmpty)
-  *[every](https://rxjs.dev/api/operators/every)
-  *[find](https://rxjs.dev/api/operators/find)
-  *[findIndex](https://rxjs.dev/api/operators/findIndex)
-  *[isEmpty](https://rxjs.dev/api/operators/isEmpty
+  * [defaultIfEmpty](https://rxjs.dev/api/operators/defaultIfEmpty)
+  * [every](https://rxjs.dev/api/operators/every)
+  * [find](https://rxjs.dev/api/operators/find)
+  * [findIndex](https://rxjs.dev/api/operators/findIndex)
+  * [isEmpty](https://rxjs.dev/api/operators/isEmpty
 
   
 ### Mathematical and Aggregate Operators
