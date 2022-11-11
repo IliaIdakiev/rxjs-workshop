@@ -4,20 +4,12 @@ import { loadPosts, loadUsers } from './api.service';
 import { IPost, IUser } from './interfaces';
 
 
-// ? ! Create a stream which emits whenever the the command/ctrl key has been pressed
-const cmdPress$ = of();
-
-
-// ? ! Create a stream which emits whenever the the command/ctrl key has been released
-const cmdRelease$ = of();
-
-
 // ! Create a stream which tracks the "pressed" state of the command/ctrl key
 const cmdPressed$ = of();
 // * Example: cmdPressed$.subscribe(console.log) => This should emit `true` when the command/ctrl key has been pressed and `false` whenever it is released
 
 
-// ! Create a multicast observable for the previous stream (https://rxjs.dev/api/index/function/connectable) and initiate it
+// ! Create a multicast/HOT observable for the previous stream (https://rxjs.dev/api/index/function/connectable) and initiate it
 const connectableCmdPressed$ = of();
 
 class Search {
@@ -92,7 +84,7 @@ const search = new Search();
 
 class Effects {
   init() {
-    // ! Connect the search input with input list meaning that whenever something is typed into the search, a new request to fetch the users is sent
+    // ! #1 Connect the search input with input list meaning that whenever something is typed into the search, a new request to fetch the users is sent
     // * PS: this should also handle the initial loading of the users
     search.input$.pipe(
       //...
