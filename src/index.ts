@@ -1,6 +1,7 @@
 import { debounceTime, partition, filter, fromEvent, map, startWith, switchMap, tap, scan, skipUntil, takeUntil, combineLatest, shareReplay, publish, connectable, merge, BehaviorSubject, ReplaySubject, withLatestFrom, skipWhile, of, delay, interval, take, bufferWhen, skip, mergeMap, concatAll, mergeAll, exhaustAll, buffer, zip, zipAll, zipWith, from, reduce } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
 import { loadPosts, loadUsers } from './api.service';
+import { apiUrl$ } from './constants';
 import { IPost, IUser } from './interfaces';
 
 
@@ -25,7 +26,9 @@ class Search {
 
   // ! input$ should be a stream which emits whenever something has been typed into said input element
   // * Example: (new Search()).input$.subscribe(console.log); => This should log everything typed into the text input on the page
-  input$ = of();
+  input$ = fromEvent(this.input, 'input').pipe(
+    map(e => (e.target as HTMLInputElement).value)
+  )
 }
 
 
@@ -95,7 +98,13 @@ class Effects {
     // ! Connect the search input with input list meaning that whenever something is typed into the search, a new request to fetch the users is sent
     // * PS: this should also handle the initial loading of the users
     search.input$.pipe(
-      //...
+      debounceTime(500),
+      startWith(''),
+      switchMap((filterText) => {
+        const search = new URLSearchParams();
+        if (filterText) { search.set('username_like', filterText) }
+        return loadUsers(search);
+      })
     ).subscribe(users => {
       userList.hideLoading();
       userList.renderUsers(users);
