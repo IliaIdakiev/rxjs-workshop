@@ -6,7 +6,8 @@
     "module": "es6",
     "target": "es5",
     "allowJs": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "lib": ["DOM"]
   },
   "files": ["src/index.ts"]
 }
